@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Flux.Mediator.Extensions.DependencyInjection;
 using Flux.Mediator.Abstractions;
 
 namespace Flux.Mediator.Tests;
