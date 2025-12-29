@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Flux.Mediator.Abstractions;
 
-namespace Flux.Mediator;
+namespace Flux.Mediator.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {

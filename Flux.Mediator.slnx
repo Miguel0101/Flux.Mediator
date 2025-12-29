@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="Flux.Mediator.Abstractions/Flux.Mediator.Abstractions.csproj" />
   <Project Path="Flux.Mediator.Core/Flux.Mediator.Core.csproj" />
+  <Project Path="Flux.Mediator.Extensions.DependencyInjection/Flux.Mediator.Extensions.DependencyInjection.csproj" />
   <Project Path="Flux.Mediator.Tests/Flux.Mediator.Tests.csproj" />
   <Project Path="Flux.Mediator/Flux.Mediator.csproj" />
 </Solution>
