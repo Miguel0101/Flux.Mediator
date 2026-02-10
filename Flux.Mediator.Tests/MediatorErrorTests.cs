@@ -1,6 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
+using Flux.Mediator.Abstractions.Dispatching;
+using Flux.Mediator.Abstractions.Requests;
 using Flux.Mediator.Extensions.DependencyInjection;
-using Flux.Mediator.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Flux.Mediator.Tests;
 

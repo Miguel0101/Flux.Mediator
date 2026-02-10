@@ -1,9 +1,9 @@
-namespace Flux.Mediator.Abstractions;
+namespace Flux.Mediator.Abstractions.Requests;
 
-public abstract class IRequestHandler<TRequest, TResult> : IGenericRequestHandler<TRequest, TResult>
+public interface IRequestHandler<TRequest, TResult> : IDynamicRequestHandler
 where TRequest : IRequest<TResult>
 {
-    public abstract Task<TResult> HandleAsync(TRequest request, CancellationToken ct = default);
+    Task<TResult> HandleAsync(TRequest request, CancellationToken ct = default);
 
     async Task<T> IDynamicRequestHandler.HandleAsync<T>(IRequest<T> request, CancellationToken ct)
     {

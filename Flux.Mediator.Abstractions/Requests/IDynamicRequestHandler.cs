@@ -1,4 +1,4 @@
-namespace Flux.Mediator.Abstractions;
+namespace Flux.Mediator.Abstractions.Requests;
 
 public interface IDynamicRequestHandler
 {
