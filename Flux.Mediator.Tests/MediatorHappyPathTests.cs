@@ -1,4 +1,5 @@
-﻿using Flux.Mediator.Abstractions;
+﻿using Flux.Mediator.Abstractions.Dispatching;
+using Flux.Mediator.Abstractions.Requests;
 using Flux.Mediator.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,7 +11,7 @@ public class MediatorHappyPathTests
 
     public sealed class Handler : IRequestHandler<CountCharactersRequest, int>
     {
-        public override Task<int> HandleAsync(CountCharactersRequest request, CancellationToken ct = default)
+        public Task<int> HandleAsync(CountCharactersRequest request, CancellationToken ct = default)
             => Task.FromResult(request.Content.Length);
     }
 

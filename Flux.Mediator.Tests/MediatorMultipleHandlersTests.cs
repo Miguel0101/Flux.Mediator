@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using Flux.Mediator.Abstractions;
 using Flux.Mediator.Extensions.DependencyInjection;
+using Flux.Mediator.Abstractions.Requests;
+using Flux.Mediator.Abstractions.Dispatching;
 
 namespace Flux.Mediator.Tests;
 
@@ -10,13 +11,13 @@ public class MediatorMultipleHandlersTests
 
     public sealed class Handler1 : IRequestHandler<Query, int>
     {
-        public override Task<int> HandleAsync(Query request, CancellationToken ct)
+        public Task<int> HandleAsync(Query request, CancellationToken ct)
             => Task.FromResult(1);
     }
 
     public sealed class Handler2 : IRequestHandler<Query, int>
     {
-        public override Task<int> HandleAsync(Query request, CancellationToken ct)
+        public Task<int> HandleAsync(Query request, CancellationToken ct)
             => Task.FromResult(2);
     }
 
