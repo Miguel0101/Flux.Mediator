@@ -17,9 +17,12 @@ public class MediatorBenchmarks
     public void Setup()
     {
         var services = new ServiceCollection();
-        services.AddFluxMediator();
+
         services.AddTransient<IRequestHandler<PingRequest, string>, PingRequestHandler>();
-        _mediator = services.BuildServiceProvider().GetRequiredService<IMediator>();
+        services.AddFluxMediator();
+
+        _mediator = services.BuildServiceProvider()
+            .GetRequiredService<IMediator>();
     }
 
     [Benchmark]
