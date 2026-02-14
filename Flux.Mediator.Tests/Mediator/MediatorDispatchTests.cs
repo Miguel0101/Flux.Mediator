@@ -14,8 +14,8 @@ public class MediatorDispatchTests
     {
         var services = new ServiceCollection();
 
-        services.AddFluxMediator();
         services.AddTransient<IRequestHandler<PingRequest, string>, PingRequestHandler>();
+        services.AddFluxMediator();
 
         await using var provider = services.BuildServiceProvider();
         var mediator = provider.GetRequiredService<IMediator>();

@@ -13,8 +13,9 @@ public class MediatorFailingTests
     public async Task SendAsync_ShouldPropagateHandlerException()
     {
         var services = new ServiceCollection();
-        services.AddFluxMediator();
+
         services.AddTransient<IRequestHandler<PingRequest, string>, FailingRequestHandler>();
+        services.AddFluxMediator();
 
         await using var provider = services.BuildServiceProvider();
         var mediator = provider.GetRequiredService<IMediator>();
