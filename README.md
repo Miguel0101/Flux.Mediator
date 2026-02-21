@@ -126,9 +126,10 @@ Intel Xeon CPU E5-2680 v4 2.40GHz, 1 CPU, 28 logical and 14 physical cores
 
 
 ```
-| Method   | Mean     | Error    | StdDev   | Gen0   | Allocated |
-|--------- |---------:|---------:|---------:|-------:|----------:|
-| SendPing | 67.73 ns | 0.226 ns | 0.189 ns | 0.0092 |     168 B |
+| Method       | Mean      | Error    | StdDev   | Gen0   | Allocated |
+|------------- |----------:|---------:|---------:|-------:|----------:|
+| Request      |  95.21 ns | 0.557 ns | 0.465 ns | 0.0105 |     192 B |
+| Notification | 127.48 ns | 1.142 ns | 1.068 ns | 0.0153 |     280 B |
 
 ---
 
