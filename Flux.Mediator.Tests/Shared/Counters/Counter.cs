@@ -1,4 +1,4 @@
-namespace Flux.Mediator.Tests.Counters;
+namespace Flux.Mediator.Tests.Shared.Counters;
 
 public sealed class Counter
 {

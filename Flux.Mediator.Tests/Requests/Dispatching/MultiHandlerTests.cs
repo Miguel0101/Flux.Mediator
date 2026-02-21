@@ -1,15 +1,14 @@
 using Flux.Mediator.Abstractions.Requests;
 using Flux.Mediator.Extensions.DependencyInjection;
-using Flux.Mediator.Tests.Handlers;
-using Flux.Mediator.Tests.Requests;
+using Flux.Mediator.Tests.Requests.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Flux.Mediator.Tests.Mediator;
+namespace Flux.Mediator.Tests.Requests.Dispatching;
 
-public class MediatorMultiHandlerTests
+public class MultiHandlerTests
 {
     [Fact]
-    public async Task SendAsync_ShouldThrow_WhenMultipleHandlersRegistered()
+    public async Task AddFluxMediator_ShouldThrow_WhenMultipleHandlersRegistered()
     {
         var services = new ServiceCollection();
 

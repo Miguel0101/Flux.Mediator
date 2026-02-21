@@ -1,13 +1,12 @@
 using Flux.Mediator.Abstractions.Dispatching;
 using Flux.Mediator.Abstractions.Requests;
 using Flux.Mediator.Extensions.DependencyInjection;
-using Flux.Mediator.Tests.Handlers;
-using Flux.Mediator.Tests.Requests;
+using Flux.Mediator.Tests.Requests.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Flux.Mediator.Tests.Mediator;
+namespace Flux.Mediator.Tests.Requests.Dispatching;
 
-public class MediatorDispatchTests
+public class DispatchTests
 {
     [Fact]
     public async Task SendAsync_ShouldReturnResponse_FromRequestHandler()

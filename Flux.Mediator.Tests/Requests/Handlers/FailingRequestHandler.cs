@@ -1,7 +1,6 @@
 using Flux.Mediator.Abstractions.Requests;
-using Flux.Mediator.Tests.Requests;
 
-namespace Flux.Mediator.Tests.Handlers;
+namespace Flux.Mediator.Tests.Requests.Handlers;
 
 public sealed class FailingRequestHandler : IRequestHandler<PingRequest, string>
 {

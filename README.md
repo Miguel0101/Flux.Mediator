@@ -13,6 +13,7 @@ predictable, testable, and framework‑agnostic.
 ## Features
 
 - **Request / Response model**
+- **Notification model**
 - **Strongly typed handlers**
 - **Thread-safe & stateless mediator**
 - **Clean separation of Abstractions and Core**
@@ -24,15 +25,11 @@ predictable, testable, and framework‑agnostic.
 
 ---
 
-NuGet Package - [Flux.Mediator](https://www.nuget.org/packages/Flux.Mediator)
-
----
-
-`Flux.Mediator.Abstractions` Contracts (IRequest, IMediator, Handlers)
-
-`Flux.Mediator.Core` Mediator implementation
-
-`Flux.Mediator.Extensions.DependencyInjection` Developer Experience (DX)
+| Packages                                      | Description                               |
+|-----------------------------------------------|-------------------------------------------|
+|`Flux.Mediator.Abstractions`                   | Contracts (IRequest, IMediator, Handlers) |
+|`Flux.Mediator.Core`                           | Mediator implementation                   |
+|`Flux.Mediator.Extensions.DependencyInjection` | Developer Experience (DX)                 |
 
 ---
 
@@ -49,10 +46,16 @@ dotnet add package Flux.Mediator
 ### Request
 
 ```csharp
-public sealed class PingRequest : IRequest<string>;
+public record PingRequest : IRequest<string>;
 ```
 
-### Handler
+### Notification
+
+```csharp
+public record Notification(string Message) : INotification;
+```
+
+### Handlers
 
 ```csharp
 public sealed class PingRequestHandler : IRequestHandler<PingRequest, string>
@@ -62,10 +65,39 @@ public sealed class PingRequestHandler : IRequestHandler<PingRequest, string>
 }
 ```
 
+```csharp
+public sealed class NotificationHandler : INotificationHandler<Notification>
+{
+    public async Task HandleAsync(Notification notification, CancellationToken ct)
+        => Console.WriteLine($"A notification received - {notification.Message}");
+}
+```
+
+### Registering Handlers
+
+```csharp
+services.AddTransient<IRequestHandler<PingRequest, string>, PingRequestHandler>();
+services.AddTransient<INotificationHandler<Notification>, NotificationHandler>();
+```
+
+### Registering the Mediator
+
+```csharp
+services.AddFluxMediator();
+```
+
 ### Using the Mediator
+
+#### Request
 
 ```csharp
 var result = await mediator.SendAsync(new PingRequest());
+```
+
+#### Notification
+
+```csharp
+await mediator.PublishAsync(new Notification("You have a message."));
 ```
 
 ---
@@ -120,6 +152,10 @@ Flux.Mediator follows **Semantic Versioning**:
 - **PATCH** → fixes
 
 ---
+
+### NuGet
+
+NuGet Package - [Flux.Mediator](https://www.nuget.org/packages/Flux.Mediator)
 
 ## Author
 

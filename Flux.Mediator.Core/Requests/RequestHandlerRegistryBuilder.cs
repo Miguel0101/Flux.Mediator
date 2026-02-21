@@ -1,13 +1,13 @@
 using Flux.Mediator.Abstractions.Requests;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Flux.Mediator.Core.Handlers;
+namespace Flux.Mediator.Core.Requests;
 
-internal static class HandlerRegistryBuilder
+internal static class RequestHandlerRegistryBuilder
 {
-    public static HandlerRegistry Build(IServiceCollection services)
+    public static RequestHandlerRegistry Build(IServiceCollection services)
     {
-        var registry = new HandlerRegistry();
+        var registry = new RequestHandlerRegistry();
 
         var handlers = services
             .Where(descriptor => descriptor.ServiceType.IsGenericType &&
