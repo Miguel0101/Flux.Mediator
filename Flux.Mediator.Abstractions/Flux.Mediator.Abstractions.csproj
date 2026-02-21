@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Flux.Mediator.Abstractions</PackageId>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
     <Authors>Miguel Magno</Authors>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

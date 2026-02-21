@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Flux.Mediator</PackageId>
-    <Version>2.0.2</Version>
+    <Version>2.1.0</Version>
     <Authors>Miguel Magno</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Miguel0101/Flux.Mediator</RepositoryUrl>
