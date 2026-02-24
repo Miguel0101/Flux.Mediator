@@ -11,12 +11,12 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddFluxMediator(this IServiceCollection services)
     {
         services.AddSingleton(RequestHandlerRegistryBuilder.Build(services));
-        services.AddSingleton<RequestHandlerResolver>();
-
         services.AddSingleton(NotificationHandlerRegistryBuilder.Build(services));
-        services.AddSingleton<NotificationHandlerResolver>();
 
-        services.AddSingleton<IMediator, MediatorCore>();
+        services.AddScoped<RequestHandlerResolver>();
+        services.AddScoped<NotificationHandlerResolver>();
+
+        services.AddScoped<IMediator, MediatorCore>();
 
         return services;
     }
