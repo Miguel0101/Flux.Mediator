@@ -1,7 +1,7 @@
 namespace Flux.Mediator.Abstractions.Requests;
 
 public interface IRequestHandler<TRequest, TResult> : IDynamicRequestHandler
-where TRequest : IRequest<TResult>
+    where TRequest : IRequest<TResult>
 {
     Task<TResult> HandleAsync(TRequest request, CancellationToken ct = default);
 
